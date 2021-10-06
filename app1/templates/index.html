@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Página Principal - Consórcio B&B</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans
+        &family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+            body, html{
+                margin: 0;
+                padding: 0;
+                background-color:black;
+            }
+            header{
+                width: 100%;
+                height: 70px;
+                background-color:tomato;
+            }
+            h1{ 
+                position: absolute;
+                padding: 3px;
+                float: left;
+                margin-left: 2%;
+                margin-top: 10px;
+                font-family: 'Roboto Slab', serif;
+                color: gray;
+            }
+            span{
+                color: white;
+            }
+            ul{
+                width: auto;
+                float: right;
+                margin-top: 8px;
+            }
+            li{
+                display: inline-block;
+                padding: 15px 30px;
+
+            }
+            a{
+                text-align: center;
+                color: white;
+                text-decoration: none;
+                font-family: "Open Sans", sans-serif;
+                font-size: 1.2vw;
+            }
+            a:hover{
+                color: yellow;
+                transition: 0.5s;
+            }
+            img{
+                display: block;
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h2{
+                font-family: 'Roboto Slab', serif;
+                color: white;
+                text-align: center;
+                bottom: 0;
+            }
+
+        </style>
+    </head>
+    <header>
+        <h1>Consórcio <span>B&B</span></h1>
+        <nav>
+            <ul>
+                <li><a href="cliente">Consorciar-se</a></li>
+                <li><a href="carro_list">Veículos disponíveis</a></li>
+                <li><a href="sobre">Sobre</a></li>
+                <li><a href="admin">Página do Administrador</a></li>
+                <li><form action={% url 'sortear' %} method="post">
+                        {% csrf_token %}
+                        <button id="button1" type="submit">Sair</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <body/>
+        <img src="{{ultimo.imagem.url}}", alt="">
+        <h2>Último vencedor: {{ganhador.nome}} {{ganhador.sobrenome}} <br>
+            {{ultimo.marca}} {{ultimo.modelo}} no valor de R${{ultimo.preco}}</h2>
+    </body>
+</html

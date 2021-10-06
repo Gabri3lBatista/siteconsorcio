@@ -1,0 +1,87 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% bootstrap_css %}
+        <title>Cadastro - Consórcio B&B</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans
+        &family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+            body, html{
+                margin: 0;
+                padding: 0;
+                background-color:black;
+            }
+            header{
+                width: 100%;
+                height: 70px;
+                background-color:tomato;
+            }
+            h1{
+                position: absolute;
+                padding: 3px;
+                float: left;
+                margin-left: 2%;
+                margin-top: 10px;
+                font-family: 'Roboto Slab', serif;
+                color: gray;
+            }
+            span{
+                color: white;
+            }
+            ul{
+                width: auto;
+                float: right;
+                margin-top: 8px;
+            }
+            li{
+                display: inline-block;
+                padding: 15px 30px;
+
+            }
+            a{
+                text-align: center;
+                color: white;
+                text-decoration: none;
+                font-family: "Open Sans", sans-serif;
+                font-size: 1.2vw;
+            }
+            a:hover{
+                color: yellow;
+                transition: 0.5s;
+            }
+            div{
+                color: white;
+            }
+        </style>
+    </head>
+    <header>
+        <h1>Consórcio <span>B&B</span></h1>
+        <nav>
+            <ul>
+                <li><a href="cliente">Consorciar-se</a></li>
+                <li><a href="carro_list">Veículos disponíveis</a></li>
+                <li><a href="sobre">Sobre</a></li>
+                <li><a href="admin">Página do Administrador</a></li>
+                <li><a href="logar">Login/Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <div class="container">
+            <br>
+            <h2> Cadastro </h2>
+            <br>
+            <form method="post" class="form" action="{% url 'cadastro' %}" autocomplete="off">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">
+                        Efetuar cadastro 
+                    </button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </body>
+</html>
